@@ -1,0 +1,37 @@
+{
+  "name": "bible-animation-poc",
+  "version": "0.1.0",
+  "private": true,
+  "description": "성경 본문을 어린이용 AI 애니메이션으로 제작하는 TypeScript PoC",
+  "type": "module",
+  "scripts": {
+    "dev": "remotion studio src/remotion/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "validate:sample": "node --import tsx src/cli.ts validate --project public/projects/storm/project.json",
+    "prepare:sample": "node --import tsx src/cli.ts prepare --project public/projects/storm/project.json",
+    "generate:sample": "node --import tsx src/cli.ts generate --project public/projects/storm/project.json --assets image,video,voice",
+    "render:sample": "remotion render src/remotion/index.ts BibleStory out/storm.mp4 --props=public/projects/storm/project.json --codec=h264 --pixel-format=yuv420p",
+    "render:generated": "remotion render src/remotion/index.ts BibleStory out/storm-generated.mp4 --props=public/generated/storm/render-project.json --codec=h264 --pixel-format=yuv420p"
+  },
+  "dependencies": {
+    "@fontsource/noto-sans-kr": "5.3.0",
+    "@google/genai": "2.15.0",
+    "@remotion/media": "4.0.503",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "remotion": "4.0.503",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@remotion/cli": "4.0.503",
+    "@types/node": "26.1.2",
+    "@types/react": "19.2.18",
+    "tsx": "4.23.1",
+    "typescript": "5.9.3",
+    "vitest": "4.1.10"
+  },
+  "engines": {
+    "node": ">=20.12"
+  }
+}
